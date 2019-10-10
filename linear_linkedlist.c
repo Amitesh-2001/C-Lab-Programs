@@ -201,36 +201,26 @@ void delete_item()
 
     if(cur->data == item)
     {
-        if(cur->link == NULL)
-        {
-            start = cur->link;
-            free(cur);
-        }
-        else
-        {
-            cur->link = p->link;
-            p->link = NULL;
-            free(p);
-        }
+        deletebeg();
     }
-
-
-    while(cur->link != NULL)
+else
+{   
+    p = cur->link;
+    while(p->link != NULL)
     {
         if(p->data == item)
         {
             cur->link = p->link;
             p->link = NULL;
             free(p);
-            if(p->link == NULL)
-            {
-                break;
-            }
-
         }
             p = p->link;
             cur = cur->link;
     }
+            if(p->data ==item)
+            {
+               deleteend();
+            }
 }
 
 void display()
