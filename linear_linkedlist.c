@@ -197,7 +197,6 @@ void delete_item()
     scanf("%d", &item);
 
     cur = start ;
-    p = cur->link;
 
     if(cur->data == item)
     {
