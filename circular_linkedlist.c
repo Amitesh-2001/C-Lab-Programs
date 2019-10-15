@@ -171,39 +171,30 @@ void delete_item()
     scanf("%d", &item);
 
     cur = last->link ;
-    p = cur->link;
+
 
     if(cur->data == item)
     {
-        if(cur->link == cur)
-        {
-            cur = NULL;
-            free(cur);
-        }
-        else
-        {
-            last->link = cur->link;
-            cur->link = NULL;
-            free(cur);
-        }
+        deletebeg();
     }
-
-
-    while(cur != last)
+    else
     {
-        if(p->data == item)
+        p = cur->link;
+        while(p != last)
         {
-            cur->link = p->link;
-            p->link = NULL;
-
-            if(p == last)
+            if(p->data == item)
             {
-                last = cur;
+                cur->link = p->link;
+                p->link = NULL;
+                free(p);
             }
-            free(p);
+                p = p->link;
+                cur = cur->link;
         }
-            p = p->link;
-            cur = cur->link;
+        if(p->data == item)
+            {
+                deleteend();
+            }
     }
 }
 
