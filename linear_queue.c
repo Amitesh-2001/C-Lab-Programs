@@ -1,44 +1,49 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define SIZE 3
 
-int rear = -1, front = -1, CQ[SIZE], item,  i;
+#define SIZE 4
+
+int rear = -1, front = -1, Q[SIZE], item, ditem;
 
 void insert()
 {
-    if(rear == (front - 1) || (front == 0 && rear == (SIZE-1)))
-        printf("overflow\n");
+    if(rear == (SIZE-1))
+        printf("queue is full\n");
     else
     {
         printf("enter the element\n");
         scanf("%d", &item);
-
-        if(front == -1 && rear == -1)
-            front = 0;
-
-        rear = (rear + 1) % SIZE ;
-        CQ[rear] = item;
+        if(rear == -1 && front == -1)
+        {
+            rear = 0 ;
+            front = 0 ;
+        }
+        else
+        {
+            rear = rear +1 ;
+        }
+        Q[rear] = item;
     }
+
 }
 
 void Delete()
 {
-    if(rear == -1 && front == -1)
-    {
-        printf("underflow\n");
-    }
+    if(front == -1 && rear == -1)
+        printf("queue is empty\n");
     else
     {
-
-        printf("%d\n", CQ[front]);
-
+        ditem = Q[front];
+        printf("%d", ditem);
         if(front == rear)
         {
             front = -1;
             rear = -1;
         }
         else
-            front = (front + 1) % SIZE ;
+        {
+            front = front + 1 ;
+        }
     }
 }
 
@@ -48,11 +53,10 @@ void display()
         printf("empty\n");
     else
     {
-        for( i = front ; i != rear ; i = (i+1)%SIZE)
+        for(int i =front ; i<=rear ; i++)
         {
-            printf("%d\n", CQ[i]);
+            printf("%d\n", Q[i]);
         }
-        printf("%d\n", CQ[i]);
     }
 }
 
