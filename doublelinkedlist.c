@@ -200,7 +200,7 @@ void main()
     int ch;
     while(1)
     {
-        printf("1.insertbeg\n2.display\n3.insertend\n4.insertpos\n5.deletebeg\n6.deleteend\n7.deletepos\n8.exit\n");
+        printf("1.insertbeg\n2.display\n3.insertend\n4.insertpos\n5.deletebeg\n6.deleteend\n7.deletepos\n8.ispalindrome\n9.exit\n");
         printf("enter the choice\n");
         scanf("%d",&ch);
 
@@ -220,7 +220,9 @@ void main()
                      break;
             case 7 : deletepos();
                      break;
-            case 8 : exit(0);
+            case 8 : ispalindrome();
+                     break;
+            case 9 : exit(0);
         }
     }
 }
