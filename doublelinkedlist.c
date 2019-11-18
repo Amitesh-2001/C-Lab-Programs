@@ -18,7 +18,7 @@ void ispallindrome()
         ptr=ptr->rlink;
     }
     p=start;
-    while(p != ptr)
+    while(p != ptr && ptr != p->llink)
     {
         if(p->data != ptr->data)
             break;
