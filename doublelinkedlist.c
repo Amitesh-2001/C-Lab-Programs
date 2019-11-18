@@ -9,6 +9,31 @@ struct node
 };
 struct node *start = NULL;
 
+void ispallindrome()
+{
+    struct node *ptr, *p;
+    ptr=start;
+    while(ptr->rlink != NULL)
+    {
+        ptr=ptr->rlink;
+    }
+    p=start;
+    while(p != ptr)
+    {
+        if(p->data != ptr->data)
+            break;
+
+        p=p->rlink;
+        ptr=ptr->llink;
+
+    }
+    if(p->data != ptr->data)
+        printf("it is not a pallindrome\n");
+    else
+        printf("it is a pallindrome\n");
+
+
+}
 void insertbeg()
 {
     struct node *temp ;
