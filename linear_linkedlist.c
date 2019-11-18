@@ -8,6 +8,24 @@ struct node
 };
 struct node *start = NULL;
 
+void deleteAlt()
+{
+    struct node *ptr = start->link, *prev=start,*temp=NULL;
+    while(ptr!=NULL)
+    {
+        prev->link=ptr->link;
+        temp=ptr;
+        if(ptr->link==NULL)
+            ptr=ptr->link;
+        else
+            ptr=ptr->link->link;
+
+        prev=prev->link;
+        free(temp);
+    }
+
+
+}
 void insertend()
 {
     struct node *temp;
@@ -244,7 +262,7 @@ void main()
     int ch;
     while(1)
     {
-        printf("1.insertatend\n2.display\n3.insertbeg\n4.insertmid\n5.deleteend\n6.deletebeg\n7.deletemid\n8.deleteitem\n9.exit\n");
+        printf("1.insertatend\n2.display\n3.insertbeg\n4.insertmid\n5.deleteend\n6.deletebeg\n7.deletemid\n8.deleteitem\n9.deletealt\n10.exit\n");
         printf("enter the choice\n");
         scanf("%d", &ch);
 
@@ -266,7 +284,9 @@ void main()
                      break;
             case 8 : delete_item();
                      break;
-            case 9 : exit(0);
+            case 9 : deleteAlt();
+                     break;
+            case 10 : exit(0);
         }
     }
 }
