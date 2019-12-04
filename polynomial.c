@@ -52,7 +52,7 @@ void display()
         ptr=start;
         while(ptr!=NULL)
         {
-            printf("%d:%d-->", temp->coeff,temp->power);
+            printf("%d:%d-->", ptr->coeff,ptr->power);
             ptr=ptr->link;
         }
         printf("\n");
